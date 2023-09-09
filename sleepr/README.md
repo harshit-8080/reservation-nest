@@ -38,3 +38,7 @@ $ pnpm i @nestjs/mongoose mongoose
 $ pnpm i @nestjs/config
 $ nest generate module database -p common
 $ nest generate module config -p common
+
+### first MS
+$ nest g app reservations
+- Create Resources - nest generate resource reservations
