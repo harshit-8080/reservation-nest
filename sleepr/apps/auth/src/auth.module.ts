@@ -5,6 +5,7 @@ import { UsersModule } from './users/users.module';
 import { JwtModule } from '@nestjs/jwt';
 import { LocalStategy } from './stategy/local.stategy';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { JwtStategy } from './stategy/jwt.stategy';
 
 @Module({
   imports: [
@@ -19,6 +20,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService, LocalStategy],
+  providers: [AuthService, LocalStategy, JwtStategy],
 })
 export class AuthModule {}

@@ -1,4 +1,8 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import {
+  Injectable,
+  InternalServerErrorException,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { createUserDto } from './dto/createUserDto';
 import { UserRepository } from './repository/user.repository';
 import * as bcrypt from 'bcryptjs';
@@ -8,6 +12,10 @@ export class UsersService {
   constructor(protected readonly userRepository: UserRepository) {}
 
   async create(createUserDto: createUserDto) {
+    const checkUser = await this.getUserByEmail(createUserDto.email);
+    if (checkUser) {
+      throw new InternalServerErrorException('Duplicate user');
+    }
     createUserDto.password = await bcrypt.hash(createUserDto.password, 10);
     return this.userRepository.create(createUserDto);
   }
@@ -25,6 +33,22 @@ export class UsersService {
       }
 
       return user;
+    }
+  }
+
+  async getUser(_id: any) {
+    return this.userRepository.findOne(_id);
+  }
+
+  async getUserByEmail(email: string) {
+    try {
+      const user = await this.userRepository.findOne({ email });
+      if (user) {
+        return user;
+      }
+      return null;
+    } catch (error) {
+      return;
     }
   }
 }
