@@ -42,3 +42,8 @@ $ nest generate module config -p common
 ### first MS
 $ nest g app reservations
 - Create Resources - nest generate resource reservations
+
+### second MS
+$ nest g app auth
+- Create module - nest g module users
+- Create controller - nest g controller users
