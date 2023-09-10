@@ -10,4 +10,4 @@ service:
     volumes:
       - .:/usr/src/app
   mongo:
-    image: mongo      
+    image: mongo
