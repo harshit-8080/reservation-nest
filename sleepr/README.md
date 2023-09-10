@@ -83,4 +83,13 @@ $ nest g app auth
 $ nest g module users
 $ Create controller - nest g controller users
 
+
+# passport
+
+$ pnpm i @nestjs/passport passport passport-local
+$ pnpm i -D @types/passport-local
+$ pnpm i @nestjs/jwt passport-jwt
+$ pnpm i @types/passport-jwt
+
+
 ```
