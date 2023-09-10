@@ -30,7 +30,6 @@ $ pnpm run test:e2e
 $ pnpm run test:cov
 ```
 
-
 ## common library
 
 $ nest generate library common
@@ -40,10 +39,14 @@ $ nest generate module database -p common
 $ nest generate module config -p common
 
 ### first MS
+
 $ nest g app reservations
+
 - Create Resources - nest generate resource reservations
 
 ### second MS
+
 $ nest g app auth
+
 - Create module - nest g module users
 - Create controller - nest g controller users
