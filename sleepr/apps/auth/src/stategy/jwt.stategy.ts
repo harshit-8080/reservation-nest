@@ -9,7 +9,10 @@ export class JwtStategy extends PassportStrategy(Strategy) {
   constructor(private readonly userService: UsersService) {
     super({
       jwtFromRequest: ExtractJwt.fromExtractors([
-        (request: Request) => request?.cookies?.Authentication,
+        (request: any) => {
+          // console.log('line 13 ==> ', request);
+          return request?.cookies?.Authentication || request?.Authentication;
+        },
       ]),
       secretOrKey: 'secretttttkeyyyyyyyyyyy',
     });

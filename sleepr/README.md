@@ -90,6 +90,6 @@ $ pnpm i @nestjs/passport passport passport-local
 $ pnpm i -D @types/passport-local
 $ pnpm i @nestjs/jwt passport-jwt
 $ pnpm i @types/passport-jwt
-
+$ pnpm i @nestjs/microservices  
 
 ```
